@@ -1,0 +1,18 @@
+The entire code in my project is fully functional and meets all requirements outlined in the assignment specification. All memory is managed correctly, and the program adheres to the correct C89 coding standard.
+
+Functionality Overview
+
+    File I/O and Map Loading: Implemented in file_io.c, primarily within the readMapFile() function.
+
+    Game Logic (Movement, Win/Loss): Handled in game.c, with the core logic inside the movePlayer() function.
+
+    Trap and Flood Fill: The trap is handled in movePlayer() which calls triggerTrap(). The water spreading is implemented in the floodFill() function, also located in game.c.
+
+    Undo Feature: The generic linked list is implemented in linkedlist.c and linkedlist.h. The undo stack is managed within main.c, using the GameState struct (defined in game.h) to save and restore the game's state.
+
+Note on Valgrind Testing
+
+To see the final Valgrind summary showing that all heap blocks were freed, the program needs to run to completion (either a win or a lose state), as this is when all the cleanup functions are called.
+
+A quick way to test this is to start the game and guide the player into a water tile ('~') to trigger an immediate loss. This will allow the program to terminate and Valgrind to display its final summary.
+
